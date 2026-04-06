@@ -289,20 +289,6 @@ export function startViewerPage(container) {
       </div>
     </div>
 
-      <div id="particle-page" class="page active"></div>
-      <div id="viewer-page" class="page"></div>
-      <div id="avatar-page" class="page">
-          <div class="avatar-ui">
-              <h2>创建你的虚拟分身</h2>
-              <p>选择一个灵魂色彩，定义你在博物馆中的存在</p>
-              <div id="color-palette"></div>
-              <div class="slider-group">
-                  <label>形态胖瘦</label>
-                  <input type="range" id="weight-slider" min="0.5" max="1.5" step="0.1" value="1">
-              </div>
-              <button id="save-avatar">进入博物馆</button>
-          </div>
-      </div>
 
     <div class="viewer-legend-wrap">
       <div class="viewer-legend-title">Programs</div>
