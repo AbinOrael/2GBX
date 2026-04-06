@@ -9,76 +9,40 @@ import { MeshSurfaceSampler } from "three/examples/jsm/math/MeshSurfaceSampler.j
 
 const PROGRAM_DEFS = [
   {
-    key: "structure",
-    label: "Structure",
-    file: "/models/structure.gltf",
-    color: "#cfcfcf"
-  },
-  {
-    key: "columns",
-    label: "Columns",
-    file: "/models/columns.gltf",
-    color: "#a8a8a8"
-  },
-  {
     key: "circulation",
     label: "Circulation",
-    file: "/models/circulation.gltf",
-    color: "#ffd24a"
+    file: "/models/Circulation.gltf",
+    color: "#f8c7ff"
   },
   {
-    key: "public",
-    label: "Public",
-    file: "/models/public.gltf",
-    color: "#ff9f43"
+    key: "core_engine",
+    label: "Core Engine",
+    file: "/models/Core_Engine.gltf",
+    color: "#ffe066"
   },
   {
-    key: "civic",
-    label: "Civic",
-    file: "/models/civic.gltf",
-    color: "#ff6b6b"
+    key: "media_maze",
+    label: "Media Maze",
+    file: "/models/Media_Maze.gltf",
+    color: "#95e7ff"
   },
   {
-    key: "guest_center",
-    label: "Guest Center",
-    file: "/models/guest_center.gltf",
-    color: "#7bed9f"
+    key: "pixel_gallery",
+    label: "Pixel Gallery",
+    file: "/models/Pixel_Gallery.gltf",
+    color: "#ff8ad8"
   },
   {
-    key: "optical_gallery",
-    label: "Optical Gallery",
-    file: "/models/optical_gallery.gltf",
-    color: "#21d4ff"
+    key: "anime_gallery",
+    label: "Anime Gallery",
+    file: "/models/Anime_Gallery.gltf",
+    color: "#b388ff"
   },
   {
-    key: "immersive_field",
-    label: "Immersive Field",
-    file: "/models/immersive_field.gltf",
-    color: "#00d2d3"
-  },
-  {
-    key: "frame_gallery_type_a",
-    label: "Frame Gallery A",
-    file: "/models/frame_gallery_type_a.gltf",
-    color: "#6c5ce7"
-  },
-  {
-    key: "frame_gallery_type_b",
-    label: "Frame Gallery B",
-    file: "/models/frame_gallery_type_b.gltf",
-    color: "#8c7ae6"
-  },
-  {
-    key: "volumetric_gallery_type_a",
-    label: "Volumetric Gallery A",
-    file: "/models/volumetric_gallery_type_a.gltf",
-    color: "#ff4fd8"
-  },
-  {
-    key: "volumetric_gallery_type_b",
-    label: "Volumetric Gallery B",
-    file: "/models/volumetric_gallery_type_b.gltf",
-    color: "#ff79c6"
+    key: "gallery_3d",
+    label: "3D Gallery",
+    file: "/models/3D_Gallery.gltf",
+    color: "#7af0b5"
   }
 ];
 
@@ -86,50 +50,38 @@ const LEGEND_ITEMS = [
   {
     key: "circulation",
     label: "Circulation",
-    color: "#ffd24a",
+    color: "#f8c7ff",
     match: ["circulation"]
   },
   {
-    key: "public",
-    label: "Public",
-    color: "#ff9f43",
-    match: ["public"]
+    key: "core_engine",
+    label: "Core Engine",
+    color: "#ffe066",
+    match: ["core_engine"]
   },
   {
-    key: "civic",
-    label: "Civic",
-    color: "#ff6b6b",
-    match: ["civic"]
+    key: "media_maze",
+    label: "Media Maze",
+    color: "#95e7ff",
+    match: ["media_maze"]
   },
   {
-    key: "guest_center",
-    label: "Guest Center",
-    color: "#7bed9f",
-    match: ["guest_center"]
+    key: "pixel_gallery",
+    label: "Pixel Gallery",
+    color: "#ff8ad8",
+    match: ["pixel_gallery"]
   },
   {
-    key: "optical_gallery",
-    label: "Optical Gallery",
-    color: "#21d4ff",
-    match: ["optical_gallery"]
+    key: "anime_gallery",
+    label: "Anime Gallery",
+    color: "#b388ff",
+    match: ["anime_gallery"]
   },
   {
-    key: "immersive_field",
-    label: "Immersive Field",
-    color: "#00d2d3",
-    match: ["immersive_field"]
-  },
-  {
-    key: "frame_gallery",
-    label: "Frame Gallery",
-    color: "#6c5ce7",
-    match: ["frame_gallery_type_a", "frame_gallery_type_b"]
-  },
-  {
-    key: "volumetric_gallery",
-    label: "Volumetric Gallery",
-    color: "#ff4fd8",
-    match: ["volumetric_gallery_type_a", "volumetric_gallery_type_b"]
+    key: "gallery_3d",
+    label: "3D Gallery",
+    color: "#7af0b5",
+    match: ["gallery_3d"]
   }
 ];
 
@@ -296,7 +248,7 @@ export function startParticlePage(mountEl) {
     ui.className = "ui";
     ui.innerHTML = `
       <div class="card title">
-        <h1>Media Nexus</h1>
+        <h1>The Player</h1>
         <p>Hold to gather • Hover to scan • Drag to orbit</p>
       </div>
 

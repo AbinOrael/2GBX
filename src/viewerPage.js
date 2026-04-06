@@ -3,171 +3,146 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 
 const PROGRAM_DEFS = [
   {
-    key: "structure",
-    label: "Structure",
-    file: "/models/structure.gltf",
-    color: "#cfcfcf",
+    key: "buildings",
+    label: "Buildings",
+    file: "/models/Buildings.gltf",
+    color: "#6c6c6c",
     explode: 0.0,
-    info: "Primary structural frame and core support system.",
-    baseOpacity: 0.6
+    info: "Surrounding urban context and skyline massing.",
+    baseOpacity: 0.22
   },
   {
-    key: "columns",
-    label: "Columns",
-    file: "/models/columns.gltf",
-    color: "#a8a8a8",
-    explode: 0.35,
-    info: "Vertical support field and tectonic rhythm.",
+    key: "ground",
+    label: "Ground",
+    file: "/models/Ground.gltf",
+    color: "#2f2f34",
+    explode: 0.0,
+    info: "Site ground, base topography, and supporting platform surface.",
+    baseOpacity: 0.82
+  },
+  {
+    key: "highline",
+    label: "Highline",
+    file: "/models/Highline.gltf",
+    color: "#efefef",
+    explode: 0.18,
+    info: "The High Line connection and elevated pedestrian approach.",
     baseOpacity: 1.0
+  },
+  {
+    key: "platform",
+    label: "Platform",
+    file: "/models/Platform.gltf",
+    color: "#b8b8b8",
+    explode: 0.32,
+    info: "Elevated access platform linking the High Line and museum entry.",
+    baseOpacity: 0.95
   },
   {
     key: "circulation",
     label: "Circulation",
-    file: "/models/circulation.gltf",
-    color: "#ffd24a",
-    explode: 0.75,
-    info: "Movement spine, ramps, transitions, and internal flow.",
+    file: "/models/Circulation.gltf",
+    color: "#f8c7ff",
+    explode: 0.7,
+    info: "Internal circulation, route logic, and movement spine.",
     baseOpacity: 1.0
   },
   {
-    key: "public",
-    label: "Public",
-    file: "/models/public.gltf",
-    color: "#ff9f43",
+    key: "core_engine",
+    label: "Core Engine",
+    file: "/models/Core_Engine.gltf",
+    color: "#ffe066",
     explode: 1.15,
-    info: "Shared public-facing zones and open collective interfaces.",
+    info: "Central scanning theater and avatar-generation core.",
     baseOpacity: 1.0
   },
   {
-    key: "civic",
-    label: "Civic",
-    file: "/models/civic.gltf",
-    color: "#ff6b6b",
-    explode: 1.55,
-    info: "Civic-facing program and public urban identity.",
+    key: "media_maze",
+    label: "Media Maze",
+    file: "/models/Media_Maze.gltf",
+    color: "#95e7ff",
+    explode: 1.6,
+    info: "Public media maze / game plaza at the lower level.",
     baseOpacity: 1.0
   },
   {
-    key: "guest_center",
-    label: "Guest Center",
-    file: "/models/guest_center.gltf",
-    color: "#7bed9f",
-    explode: 1.95,
-    info: "Visitor-facing threshold, orientation, and reception space.",
+    key: "pixel_gallery",
+    label: "Pixel Gallery",
+    file: "/models/Pixel_Gallery.gltf",
+    color: "#ff8ad8",
+    explode: 2.05,
+    info: "Pixel-based themed gallery environment.",
     baseOpacity: 1.0
   },
   {
-    key: "optical_gallery",
-    label: "Optical Gallery",
-    file: "/models/optical_gallery.gltf",
-    color: "#21d4ff",
-    explode: 2.35,
-    info: "Optical media environment with framed visual experience.",
+    key: "anime_gallery",
+    label: "Anime Gallery",
+    file: "/models/Anime_Gallery.gltf",
+    color: "#b388ff",
+    explode: 2.5,
+    info: "Anime-themed scenario gallery and identity transformation zone.",
     baseOpacity: 1.0
   },
   {
-    key: "immersive_field",
-    label: "Immersive Field",
-    file: "/models/immersive_field.gltf",
-    color: "#00d2d3",
-    explode: 2.75,
-    info: "Immersive media field and responsive atmospheric zone.",
-    baseOpacity: 1.0
-  },
-  {
-    key: "frame_gallery_type_a",
-    label: "Frame Gallery A",
-    file: "/models/frame_gallery_type_a.gltf",
-    color: "#6c5ce7",
-    explode: 3.15,
-    info: "Framed gallery volume, type A.",
-    baseOpacity: 1.0
-  },
-  {
-    key: "frame_gallery_type_b",
-    label: "Frame Gallery B",
-    file: "/models/frame_gallery_type_b.gltf",
-    color: "#8c7ae6",
-    explode: 3.55,
-    info: "Framed gallery volume, type B.",
-    baseOpacity: 1.0
-  },
-  {
-    key: "volumetric_gallery_type_a",
-    label: "Volumetric Gallery A",
-    file: "/models/volumetric_gallery_type_a.gltf",
-    color: "#ff4fd8",
-    explode: 3.95,
-    info: "Volumetric gallery volume, type A.",
-    baseOpacity: 1.0
-  },
-  {
-    key: "volumetric_gallery_type_b",
-    label: "Volumetric Gallery B",
-    file: "/models/volumetric_gallery_type_b.gltf",
-    color: "#ff79c6",
-    explode: 4.35,
-    info: "Volumetric gallery volume, type B.",
+    key: "gallery_3d",
+    label: "3D Gallery",
+    file: "/models/3D_Gallery.gltf",
+    color: "#7af0b5",
+    explode: 2.95,
+    info: "3D / volumetric media gallery and spatial interaction zone.",
     baseOpacity: 1.0
   }
 ];
 
 const LEGEND_ITEMS = [
   {
+    key: "context",
+    label: "Context",
+    color: "#6c6c6c",
+    match: ["buildings", "ground", "highline", "platform"],
+    info: "Urban context, site ground, and the High Line access framework."
+  },
+  {
     key: "circulation",
     label: "Circulation",
-    color: "#ffd24a",
+    color: "#f8c7ff",
     match: ["circulation"],
-    info: "Movement spine, ramps, transitions, and internal flow."
+    info: "Movement spine, transitions, and route sequence through the museum."
   },
   {
-    key: "public",
-    label: "Public",
-    color: "#ff9f43",
-    match: ["public"],
-    info: "Shared public-facing zones and open collective interfaces."
+    key: "core_engine",
+    label: "Core Engine",
+    color: "#ffe066",
+    match: ["core_engine"],
+    info: "Central scanning chamber where the visitor avatar is generated."
   },
   {
-    key: "civic",
-    label: "Civic",
-    color: "#ff6b6b",
-    match: ["civic"],
-    info: "Civic-facing program and public urban identity."
+    key: "media_maze",
+    label: "Media Maze",
+    color: "#95e7ff",
+    match: ["media_maze"],
+    info: "Public media maze / game plaza forming the open lower-level field."
   },
   {
-    key: "guest_center",
-    label: "Guest Center",
-    color: "#7bed9f",
-    match: ["guest_center"],
-    info: "Visitor-facing threshold, orientation, and reception space."
+    key: "pixel_gallery",
+    label: "Pixel Gallery",
+    color: "#ff8ad8",
+    match: ["pixel_gallery"],
+    info: "Gallery zone based on pixel logic and stylized media worlds."
   },
   {
-    key: "optical_gallery",
-    label: "Optical Gallery",
-    color: "#21d4ff",
-    match: ["optical_gallery"],
-    info: "Optical media environment with framed visual experience."
+    key: "anime_gallery",
+    label: "Anime Gallery",
+    color: "#b388ff",
+    match: ["anime_gallery"],
+    info: "Anime-themed gallery world with a distinct media identity."
   },
   {
-    key: "immersive_field",
-    label: "Immersive Field",
-    color: "#00d2d3",
-    match: ["immersive_field"],
-    info: "Immersive media field and responsive atmospheric zone."
-  },
-  {
-    key: "frame_gallery",
-    label: "Frame Gallery",
-    color: "#6c5ce7",
-    match: ["frame_gallery_type_a", "frame_gallery_type_b"],
-    info: "Framed gallery volumes, including type A and type B."
-  },
-  {
-    key: "volumetric_gallery",
-    label: "Volumetric Gallery",
-    color: "#ff4fd8",
-    match: ["volumetric_gallery_type_a", "volumetric_gallery_type_b"],
-    info: "Volumetric gallery volumes, including type A and type B."
+    key: "gallery_3d",
+    label: "3D Gallery",
+    color: "#7af0b5",
+    match: ["gallery_3d"],
+    info: "3D media gallery focused on volumetric and spatial interaction."
   }
 ];
 
@@ -197,14 +172,7 @@ const ACTIVE_EMISSIVE = 0.2;
 const DIM_OPACITY = 0.06;
 const DIM_EMISSIVE = 0.0;
 
-const EDITABLE_KEYS = new Set([
-  "immersive_field",
-  "optical_gallery",
-  "frame_gallery_type_a",
-  "frame_gallery_type_b",
-  "volumetric_gallery_type_a",
-  "volumetric_gallery_type_b"
-]);
+const EDITABLE_KEYS = new Set([]);
 
 const DRAG_MODES = {
   UV: "uv",
@@ -275,8 +243,8 @@ export function startViewerPage(container) {
   ui.innerHTML = `
     <div class="viewer-topbar">
       <div class="viewer-title-wrap">
-        <div class="viewer-kicker">AI MEDIA MUSEUM</div>
-        <div class="viewer-title">Program Diagram Viewer</div>
+        <div class="viewer-kicker">GAME MUSEUM</div>
+        <div class="viewer-title">Game Museum Program Viewer</div>
       </div>
       <div class="viewer-topbar-right">Turntable / Exploded Axon / Program Highlight</div>
     </div>
@@ -320,6 +288,21 @@ export function startViewerPage(container) {
         <div><kbd>R</kbd> reset</div>
       </div>
     </div>
+
+      <div id="particle-page" class="page active"></div>
+      <div id="viewer-page" class="page"></div>
+      <div id="avatar-page" class="page">
+          <div class="avatar-ui">
+              <h2>创建你的虚拟分身</h2>
+              <p>选择一个灵魂色彩，定义你在博物馆中的存在</p>
+              <div id="color-palette"></div>
+              <div class="slider-group">
+                  <label>形态胖瘦</label>
+                  <input type="range" id="weight-slider" min="0.5" max="1.5" step="0.1" value="1">
+              </div>
+              <button id="save-avatar">进入博物馆</button>
+          </div>
+      </div>
 
     <div class="viewer-legend-wrap">
       <div class="viewer-legend-title">Programs</div>
@@ -596,14 +579,20 @@ export function startViewerPage(container) {
           active: true
         });
       } else {
-        setVisualRecursive(g.object, {
-          opacity: DIM_OPACITY,
-          emissiveBoost: DIM_EMISSIVE,
-          active: false
-        });
-      }
-    }
-  }
+              const isContext =
+                g.key === "buildings" ||
+                g.key === "ground" ||
+                g.key === "highline" ||
+                g.key === "platform";
+
+              setVisualRecursive(g.object, {
+                opacity: isContext ? Math.max(g.baseOpacity, 0.18) : DIM_OPACITY,
+                emissiveBoost: DIM_EMISSIVE,
+                active: false
+              });
+            }
+          }
+        }
 
   function applyExplode() {
     for (const g of groups) {
